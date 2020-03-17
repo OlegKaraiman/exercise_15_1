@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Hillel home work</title>
+</head>
+<style>
+    .box {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+        text-align: center;
+        border: 1px solid black;
+        box-shadow: 0 0 10px 0 gray;
+    }
+
+    .newColor1 {
+        background-color: blue;
+    }
+
+    .newColor2 {
+        background-color: green;
+    }
+
+    .newColor3 {
+        background-color: yellow;
+    }
+</style>
+
+<body>
+    <div id="boxX">
+        <div id="box1" class="box">1</div>
+        <div id="box2" class="box">2</div>
+        <div id="box3" class="box">3</div>
+        <div id="box4" class="box">4</div>
+        <div id="box5" class="box">5</div>
+    </div>
+
+
+    <script>
+        const box1 = document.getElementById('box1');
+        const box2 = document.getElementById('box2');
+        const box3 = document.getElementById('box3');
+        const box4 = document.getElementById('box4');
+        const box5 = document.getElementById('box5');
+        const pause = 400;
+
+
+
+        box1.addEventListener('click', callback, true);
+        box2.addEventListener('click', callback, true);
+        box3.addEventListener('click', callback, true);
+        box4.addEventListener('click', callback, true);
+        box5.addEventListener('click', callback, true);
+
+        function callback(event) {
+            setTimeout(() => {
+                event.target.classList.add('newColor1');
+                setTimeout(() => {
+                    event.target.classList.remove('newColor1');
+                    event.target.classList.add('newColor2');
+                    setTimeout(() => {
+                        event.target.classList.remove('newColor2');
+                        event.target.classList.add('newColor3');
+                        setTimeout(() => {
+                            event.target.classList.remove('newColor3');
+                            setTimeout(() => {
+                                boxX.appendChild(event.target);
+                            }, pause);
+                        }, pause);
+                    }, pause);
+                }, pause);
+            }, pause);
+
+        }
+
+    </script>
+</body>
+
+</html>
